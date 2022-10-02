@@ -1,19 +1,27 @@
- /*Make height equal to width*/
- 
- .gridrow {
+#gridArea {width:700px;
+    height:700px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin: 10px auto;
+    }
 
- }
+    .gridRow {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+     }
 
- .gridbox {
-     height: 30px;
-     width: 30px;
-     border: 0.5px solid black;
- }
+     .gridBox {
+        flex: 1;
+         border: 0.5px solid black;
+    
+     }
  
- .boxhover {
+ .boxHover {
      background-color: blue;
  }
  
- 
+ #buttonArea button {
+     margin: 10px auto;
+     display: block;
+ }
