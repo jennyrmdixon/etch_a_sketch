@@ -1,0 +1,19 @@
+ /*Make height equal to width*/
+ 
+ .gridrow {
+    display: flex;
+    justify-content: center;
+
+ }
+
+ .gridbox {
+     height: 30px;
+     width: 30px;
+     border: 0.5px solid black;
+ }
+ 
+ .boxhover {
+     background-color: blue;
+ }
+ 
+ 
