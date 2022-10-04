@@ -33,8 +33,24 @@ function makeGrid(gridSize) {
         //Set hover
         let boxes = gridArea.querySelectorAll('.gridBox');
         boxes.forEach(box => box.addEventListener('mouseover', () => {
-            box.classList.add('boxHover');
+            let setRandomColor = getRandomColor();
+            box.style.cssText = 'background-color:'+ setRandomColor +';';   
         }));
     }
 }
+
+    function getRandomColor() {
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+      
+  
+
+        
+    
+
 
