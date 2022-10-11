@@ -11,6 +11,7 @@ button.addEventListener('click', () => {
 });
 
 const gridArea = document.querySelector('#gridArea');
+let newOpacity = 0;
 
 function makeGrid(gridSize) {
 
@@ -28,29 +29,29 @@ function makeGrid(gridSize) {
             let gridBox = document.createElement('div');
             gridRow.appendChild(gridBox);
             gridBox.setAttribute('class', 'gridBox');
+            gridBox.setAttribute('style', 'background-color:rgba(0,0,0,0);');
         }
 
         //Set hover
         let boxes = gridArea.querySelectorAll('.gridBox');
         boxes.forEach(box => box.addEventListener('mouseover', () => {
-            let setRandomColor = getRandomColor();
-            box.style.cssText = 'background-color:'+ setRandomColor +';';   
+            let style = window.getComputedStyle(box);
+            let currBackgroundColor = style.backgroundColor.slice(0, style.backgroundColor.length - 1);
+            //At opacity of 1, css gets reset to "rgb"
+            //Only execute code if "RGBA is used"
+            if (currBackgroundColor.slice(3, 4) === "a") {
+                let currOpacity = Number(currBackgroundColor.slice(14));
+                if (currOpacity < 1) {
+                    let newOpacity = currOpacity + 0.1;
+                    box.setAttribute('style', 'background-color:rgba(0,0,0,' + newOpacity + ')')
+                }
+            }
         }));
     }
 }
 
-    function getRandomColor() {
-        let letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-          color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-      }
-      
-  
 
-        
-    
+
+
 
 
