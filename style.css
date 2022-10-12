@@ -5,21 +5,16 @@
     margin: 10px auto;
     }
 
-    .gridRow {
-        display: flex;
-        justify-content: center;
-        flex: 1;
-     }
+.gridRow {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    }
 
-     .gridBox {
-        flex: 1;
-         border: 0.5px solid black;
-    
-     }
- 
- .boxHover {
-     background-color: blue;
- }
+.gridBox {
+    flex: 1;
+    border: 0.5px solid black;
+    }
  
  #buttonArea button {
      margin: 10px auto;

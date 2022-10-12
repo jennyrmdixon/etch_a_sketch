@@ -1,4 +1,4 @@
-//Allow prompt on click
+//Bring up prompt and set grid size when button is clicked
 let button = document.querySelector("#buttonArea > button")
 button.addEventListener('click', () => {
     let gridSize = parseInt(prompt("Please enter a number",));
@@ -10,8 +10,10 @@ button.addEventListener('click', () => {
     }
 });
 
+//Set variables used in grid
 const gridArea = document.querySelector('#gridArea');
 let newOpacity = 0;
+
 
 function makeGrid(gridSize) {
 
@@ -22,21 +24,26 @@ function makeGrid(gridSize) {
 
     //Make new grid
     for (let i = 0; i < gridSize; i++) {
+        //Create rows
         let gridRow = document.createElement('div');
         gridArea.appendChild(gridRow);
         gridRow.setAttribute('class', 'gridRow');
+        //Create boxes
         for (let i = 0; i < gridSize; i++) {
             let gridBox = document.createElement('div');
             gridRow.appendChild(gridBox);
             gridBox.setAttribute('class', 'gridBox');
+            //Box set to black with 0 opacity by default
             gridBox.setAttribute('style', 'background-color:rgba(0,0,0,0);');
         }
 
-        //Set hover
+        //Set hover style changes for grid boxes
         let boxes = gridArea.querySelectorAll('.gridBox');
         boxes.forEach(box => box.addEventListener('mouseover', () => {
+            //Get current background color style
             let style = window.getComputedStyle(box);
             let currBackgroundColor = style.backgroundColor.slice(0, style.backgroundColor.length - 1);
+            //Make opacity greater
             //At opacity of 1, css gets reset to "rgb"
             //Only execute code if "RGBA is used"
             if (currBackgroundColor.slice(3, 4) === "a") {
